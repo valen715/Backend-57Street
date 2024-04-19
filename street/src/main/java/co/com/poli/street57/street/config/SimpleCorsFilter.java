@@ -36,8 +36,11 @@ public class SimpleCorsFilter implements Filter {
         response.setHeader("Access-Control-Allow-Headers", "*");
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            System.out.println("if");
             response.setStatus(HttpServletResponse.SC_OK);
         } else {
+            System.out.println("else");
+
             chain.doFilter(req, res);
         }
     }

@@ -32,7 +32,7 @@ public class AuthController {
     private final UserDetailsService userDetailsService;
     private UsuarioSistemaRepository usuarioSistemaRepository;
     private final JwtUtil jwtUtil;
-    public static final String TOKEN_PREFIX = "Portador";
+    public static final String TOKEN_PREFIX = "Bearer";
     public static final String HEADER_STRING = "Authorization";
     private final AuthService authService;
 
@@ -74,7 +74,7 @@ public class AuthController {
             response.addHeader("Access-Control-Expose-Headers", "Authorization");
             response.addHeader("Access-Control-Allow-Headers", "Authorization, X-PINGOTHER, origin, " +
                     "X-Request-With, Content-Type, Accept, X-Custom-header");
-            response.addHeader(HEADER_STRING, TOKEN_PREFIX + jwt);
+            response.addHeader(HEADER_STRING, TOKEN_PREFIX + " " + jwt);
         }
 
     }
